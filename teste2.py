@@ -52,7 +52,7 @@ long_data = pd.melt(
 long_data_non_null = long_data.dropna(subset=['Date'])
 
 # Ordenar os dados por 'Nome do colaborador' e 'CEFR Level'
-long_data_non_null['CEFR Level'] = pd.Categorical(long_data_non_null['CEFR Level'], categories=cef_columns, ordered=True)
+long_data_non_null['CEFR Level'] = pd.Categorical(long_data_non_null['CEFR Level'], categories=existing_cef_columns, ordered=True)
 long_data_non_null = long_data_non_null.sort_values(by=[COLABORADOR, 'CEFR Level'])
 
 # Função para definir as cores dos pontos e linhas
@@ -171,7 +171,7 @@ for name in all_colaboradores:
 fig.update_xaxes(
     type='category',
     categoryorder='array',
-    categoryarray=cef_columns,
+    categoryarray=existing_cef_columns,
     title_text='Nível CEFR',
     showgrid=True,
     side='top'
