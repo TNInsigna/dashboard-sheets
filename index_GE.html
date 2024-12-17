@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard de Distribuição</title>
     <style>
-        /* Reset básico para garantir consistência entre navegadores */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -19,7 +18,7 @@
         }
 
         .container {
-            max-width: 1200px; /* Define um max-width para evitar que o conteúdo fique muito largo */
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
             background-color: #ffffff;
@@ -53,15 +52,14 @@
         .chart-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px; /* Espaço entre os gráficos */
+            gap: 20px;
             margin-bottom: 40px;
         }
 
         .chart-row .chart {
-            flex: 1 1 48%; /* Cada gráfico ocupa aproximadamente 48% da largura do contêiner */
+            flex: 1 1 48%;
         }
 
-        /* Responsividade: em telas menores, os gráficos ficam em coluna */
         @media (max-width: 768px) {
             .chart-row .chart {
                 flex: 1 1 100%;
@@ -72,7 +70,7 @@
 <body>
     <select name="idiomas" id="select_element">
         <option value="idioma inglês">idioma inglês</option>
-        <option value="idioma espanhol">Idioma espanhol</option>
+        <option value="idioma espanhol">idioma espanhol</option>
     </select>
       
     <div class="container">
@@ -81,43 +79,49 @@
         
         <div class="chart">
             <h2>Distribuição dos Níveis de Proficiência - antes</h2>
-            <iframe src=""></iframe>
+            <iframe id="bar_proficiency" src="GE_bko_inter.xlsx_idioma inglês_barras_proficiencia.html"></iframe>
         </div>
         
         <div class="chart">
             <h2>Distribuição dos Níveis de Proficiência - depois</h2>
-            <iframe src="GE_bko_inter.xlsx_barras_avaliacao.html"></iframe>
+            <iframe id="bar_evaluation" src="GE_bko_inter.xlsx_idioma inglês_barras_avaliacao.html"></iframe>
         </div>
         
         <div class="chart">
             <h2>Mapeamento individual</h2>
-            <iframe id="graph_frame_bar_proficiency" src="GE_bko_inter.xlsx_mapeamento_individual.html"></iframe>
+            <iframe id="individual_mapping" src="GE_bko_inter.xlsx_idioma inglês_mapeamento_individual.html"></iframe>
         </div>
         
         <div class="chart-row">
             <div class="chart">
                 <h2>Distribuição de Colaboradores por Nível CEFR - antes</h2>
-                <iframe src="GE_bko_inter.xlsx_pizza_proficiencia.html"></iframe>
+                <iframe id="pie_proficiency" src="GE_bko_inter.xlsx_idioma inglês_pizza_proficiencia.html"></iframe>
             </div>
             <div class="chart">
                 <h2>Distribuição de Colaboradores por Nível CEFR - depois</h2>
-                <iframe src="GE_bko_inter.xlsx_pizza_avaliacao.html"></iframe>
+                <iframe id="pie_evaluation" src="GE_bko_inter.xlsx_idioma inglês_pizza_avaliacao.html"></iframe>
             </div>
         </div>
     </div>
     <script>
-        // Obtém o select e o iframe
-        const selectElement = document.getElementById('select_element');
-        const iframe = document.getElementById('graph_frame_bar_proficiency');
-        console.log(selectElement)
-        console.log(iframe)
+        const selectLanguage = document.getElementById('select_element');
 
-        // Adiciona um listener para mudanças no select
-        selectElement.addEventListener('change', () => {
-            // Atualiza o src do iframe dinamicamente
-            const selectedValue = selectElement.value; // Pega o valor selecionado
-            iframe.src = `GE_bko_inter.xlsx_${selectElement.value}_barras_proficiencia.html`; // Define o src
-            console.log(iframe)
+        const iframes = {
+            bar_proficiency: document.getElementById('bar_proficiency'),
+            bar_evaluation: document.getElementById('bar_evaluation'),
+            individual_mapping: document.getElementById('individual_mapping'),
+            pie_proficiency: document.getElementById('pie_proficiency'),
+            pie_evaluation: document.getElementById('pie_evaluation')
+        };
+
+        selectLanguage.addEventListener('change', () => {
+            const selectedValue = selectLanguage.value.replace(" ", "_"); // Format the value for filenames
+
+            iframes.bar_proficiency.src = `GE_bko_inter.xlsx_${selectedValue}_barras_proficiencia.html`;
+            iframes.bar_evaluation.src = `GE_bko_inter.xlsx_${selectedValue}_barras_avaliacao.html`;
+            iframes.individual_mapping.src = `GE_bko_inter.xlsx_${selectedValue}_mapeamento_individual.html`;
+            iframes.pie_proficiency.src = `GE_bko_inter.xlsx_${selectedValue}_pizza_proficiencia.html`;
+            iframes.pie_evaluation.src = `GE_bko_inter.xlsx_${selectedValue}_pizza_avaliacao.html`;
         });
     </script>
 </body>
