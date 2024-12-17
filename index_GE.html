@@ -69,8 +69,8 @@
 </head>
 <body>
     <select name="idiomas" id="select_element">
-        <option value="idioma inglês">idioma inglês</option>
-        <option value="idioma espanhol">idioma espanhol</option>
+        <option value="idioma%20inglês">idioma inglês</option>
+        <option value="idioma%20espanhol">idioma espanhol</option>
     </select>
       
     <div class="container">
@@ -116,7 +116,7 @@
 
         selectLanguage.addEventListener('change', () => {
             const selectedValue = selectLanguage.value.replace(" ", "_"); // Format the value for filenames
-
+            
             iframes.bar_proficiency.src = `GE_bko_inter.xlsx_${selectedValue}_barras_proficiencia.html`;
             iframes.bar_evaluation.src = `GE_bko_inter.xlsx_${selectedValue}_barras_avaliacao.html`;
             iframes.individual_mapping.src = `GE_bko_inter.xlsx_${selectedValue}_mapeamento_individual.html`;
