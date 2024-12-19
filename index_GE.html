@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard de Distribuição</title>
     <style>
+        @import url('https://fonts.cdnfonts.com/css/avenir');
         * {
             box-sizing: border-box;
             margin: 0;
@@ -12,7 +13,7 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Avenir';
             background-color: #f6f6f6;
             padding: 20px;
         }
@@ -24,6 +25,10 @@
             background-color: #ffffff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, select, p {
+            font-family: 'Avenir';
         }
 
         h1 {
@@ -60,6 +65,17 @@
             flex: 1 1 48%;
         }
 
+        select {
+            display: block;
+            margin: 0 auto 20px auto;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #391e70;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
         @media (max-width: 768px) {
             .chart-row .chart {
                 flex: 1 1 100%;
@@ -68,37 +84,38 @@
     </style>
 </head>
 <body>
-    <select name="idiomas" id="select_element">
-        <option value="idioma%20inglês">idioma inglês</option>
-        <option value="idioma%20espanhol">idioma espanhol</option>
-    </select>
-      
+    
     <div class="container">
-        <h1>Insigna - GE</h1>
-        <h1>Dashboard de Distribuição</h1>
+        <h1>Insigna - General Electric Vernova</h1>
+        <h5>Gerado em 19/12/2024</h5>
+        <select name="idiomas" id="select_element">
+            <option value="idioma%20inglês">idioma inglês</option>
+            <option value="idioma%20espanhol">idioma espanhol</option>
+        </select>
         
         <div class="chart">
-            <h2>Distribuição dos Níveis de Proficiência - antes</h2>
+            <h2>Distribuição da Proficiência - início do programa</h2>
             <iframe id="bar_proficiency" src="GE_bko_inter.xlsx_idioma inglês_barras_proficiencia.html"></iframe>
         </div>
         
         <div class="chart">
-            <h2>Distribuição dos Níveis de Proficiência - depois</h2>
+            <h2>Distribuição da Proficiência - final do programa</h2>
             <iframe id="bar_evaluation" src="GE_bko_inter.xlsx_idioma inglês_barras_avaliacao.html"></iframe>
         </div>
         
         <div class="chart">
-            <h2>Mapeamento individual</h2>
+            <h2>Mapeamento da evolução individual</h2>
+            <h5>Você pode rolar esse gráfico para baixo clickando no gráfico e indo para cima com o mouse</h5>
             <iframe id="individual_mapping" src="GE_bko_inter.xlsx_idioma inglês_mapeamento_individual.html"></iframe>
         </div>
         
         <div class="chart-row">
             <div class="chart">
-                <h2>Distribuição de Colaboradores por Nível CEFR - antes</h2>
+                <h2>Distribuição por Nível CEFR - início do programa</h2>
                 <iframe id="pie_proficiency" src="GE_bko_inter.xlsx_idioma inglês_pizza_proficiencia.html"></iframe>
             </div>
             <div class="chart">
-                <h2>Distribuição de Colaboradores por Nível CEFR - depois</h2>
+                <h2>Distribuição por Nível CEFR - fim do programa</h2>
                 <iframe id="pie_evaluation" src="GE_bko_inter.xlsx_idioma inglês_pizza_avaliacao.html"></iframe>
             </div>
         </div>
