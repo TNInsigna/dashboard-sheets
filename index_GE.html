@@ -93,31 +93,37 @@
             <option value="idioma%20espanhol">idioma espanhol</option>
         </select>
         
-        <div class="chart">
-            <h2>Distribuição da Proficiência - início do programa</h2>
-            <iframe id="bar_proficiency" src="GE_bko_inter.xlsx_idioma inglês_barras_proficiencia.html"></iframe>
+        <div class="chart-row"> <!-- Barras -->
+            <div class="chart">
+                <h2>Desempenho linguístico dos colaboradores</h2>
+                <h4>Ingresso no Programa de idiomas</h4>
+                <iframe id="bar_proficiency" src="GE_bko_inter.xlsx_idioma inglês_barras_proficiencia.html"></iframe>
+            </div>
+            
+            <div class="chart">
+                <h2>Desempenho linguístico dos colaboradores</h2>
+                <h4>Momento atual no Programa de idiomas</h4>
+                <iframe id="bar_evaluation" src="GE_bko_inter.xlsx_idioma inglês_barras_avaliacao.html"></iframe>
+            </div>
         </div>
-        
-        <div class="chart">
-            <h2>Distribuição da Proficiência - final do programa</h2>
-            <iframe id="bar_evaluation" src="GE_bko_inter.xlsx_idioma inglês_barras_avaliacao.html"></iframe>
+
+        <div class="chart-row"> <!-- PIZZA -->
+            <div class="chart">
+                <h2>Desempenho linguístico dos colaboradores</h2>
+                <h5>Ingresso no Programa de idiomas</h5>
+                <iframe id="pie_proficiency" src="GE_bko_inter.xlsx_idioma inglês_pizza_proficiencia.html"></iframe>
+            </div>
+            <div class="chart">
+                <h2>Desempenho linguístico dos colaboradores</h2>
+                <h5>Momento atual no Programa de idiomas</h5>
+                <iframe id="pie_evaluation" src="GE_bko_inter.xlsx_idioma inglês_pizza_avaliacao.html"></iframe>
+            </div>
         </div>
         
         <div class="chart">
             <h2>Mapeamento da evolução individual</h2>
-            <h5>Você pode rolar esse gráfico para baixo clickando no gráfico e indo para cima com o mouse</h5>
+            <h5>Você pode visualizar todos os colaboradores, clicando no gráfico e rolando a área para cima com o mouse.</h5>
             <iframe id="individual_mapping" src="GE_bko_inter.xlsx_idioma inglês_mapeamento_individual.html"></iframe>
-        </div>
-        
-        <div class="chart-row">
-            <div class="chart">
-                <h2>Distribuição por Nível CEFR - início do programa</h2>
-                <iframe id="pie_proficiency" src="GE_bko_inter.xlsx_idioma inglês_pizza_proficiencia.html"></iframe>
-            </div>
-            <div class="chart">
-                <h2>Distribuição por Nível CEFR - fim do programa</h2>
-                <iframe id="pie_evaluation" src="GE_bko_inter.xlsx_idioma inglês_pizza_avaliacao.html"></iframe>
-            </div>
         </div>
     </div>
     <script>
