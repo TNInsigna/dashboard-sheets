@@ -92,6 +92,20 @@
             <option value="idioma%20inglês">idioma inglês</option>
             <option value="idioma%20espanhol">idioma espanhol</option>
         </select>
+        
+        <div class="chart-row"> <!-- Barras -->
+            <div class="chart">
+                <h2>Desempenho linguístico dos colaboradores</h2>
+                <h4>Ingresso no Programa de idiomas</h4>
+                <iframe id="bar_proficiency" src="GE_bko_inter.xlsx_idioma inglês_barras_proficiencia.html"></iframe>
+            </div>
+            
+            <div class="chart">
+                <h2>Desempenho linguístico dos colaboradores</h2>
+                <h4>Momento atual no Programa de idiomas</h4>
+                <iframe id="bar_evaluation" src="GE_bko_inter.xlsx_idioma inglês_barras_avaliacao.html"></iframe>
+            </div>
+        </div>
         <div class="chart">
             <h2>Mapeamento da evolução individual</h2>
             <h5>Você pode visualizar todos os colaboradores, clicando no gráfico e rolando a área para cima com o mouse.</h5>
@@ -102,11 +116,16 @@
         const selectLanguage = document.getElementById('select_element');
 
         const iframes = {
+            bar_proficiency: document.getElementById('bar_proficiency'),
+            bar_evaluation: document.getElementById('bar_evaluation'),
             individual_mapping: document.getElementById('individual_mapping'),
         };
 
         selectLanguage.addEventListener('change', () => {
             const selectedValue = selectLanguage.value.replace(" ", "_"); // Format the value for filenames
+            
+            iframes.bar_proficiency.src = `GE_bko_inter.xlsx_${selectedValue}_barras_proficiencia.html`;
+            iframes.bar_evaluation.src = `GE_bko_inter.xlsx_${selectedValue}_barras_avaliacao.html`;
             iframes.individual_mapping.src = `GE_bko_inter.xlsx_${selectedValue}_mapeamento_individual.html`;
         });
     </script>
