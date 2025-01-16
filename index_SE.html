@@ -87,10 +87,11 @@
     
     <div class="container">
         <h1>Insigna - Siemens Energy</h1>
-        <h5>135 colaboradores(136 em inglês e 20 em espanhol) processados em 20/12/2024</h5>
+        <h5>155 colaboradores(135 em inglês, 19 em espanhol e 1 em alemão) processados em 20/12/2024</h5>
         <select name="idiomas" id="select_element">
             <option value="Idioma%20Inglês">Idioma Inglês</option>
             <option value="Idioma%20Espanhol">Idioma Espanhol</option>
+            <option value="Idioma%20Alemão">Idioma Alemão</option>
         </select>
         <div class="chart">
             <h2>Mapeamento da evolução individual</h2>
@@ -102,8 +103,6 @@
         const selectLanguage = document.getElementById('select_element');
 
         const iframes = {
-            bar_proficiency: document.getElementById('bar_proficiency'),
-            bar_evaluation: document.getElementById('bar_evaluation'),
             individual_mapping: document.getElementById('individual_mapping'),
         };
 
